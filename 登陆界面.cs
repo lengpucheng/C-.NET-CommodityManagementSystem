@@ -26,6 +26,8 @@ namespace 商品管理系统
             MySqlDataReader sdr = command.ExecuteReader();
             if (sdr.Read())
             {
+                user.set姓名(sdr.GetString("name"));
+                user.setID(sdr.GetInt32("_id"));
                 MessageBox.Show("欢迎" + user.姓名());
                 管理系统主界面 主界面 = new 管理系统主界面();
                 //写入数据
@@ -39,6 +41,8 @@ namespace 商品管理系统
             }
             else
                 MessageBox.Show("用户名或密码错误或身份不正确");
+            //关闭数据链接
+            cnn.Close();
         }
 
         private void 登陆界面_Load(object sender, EventArgs e)

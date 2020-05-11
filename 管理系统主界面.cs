@@ -36,7 +36,11 @@ namespace 商品管理系统
             this.Close();
             系统.退出登录();
         }
-
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            new 销售面板(this).Show();
+            this.Hide();
+        }
         private void 管理系统主界面_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (是否点关闭)

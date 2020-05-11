@@ -8,10 +8,17 @@ namespace 商品管理系统
 {
     public class 用户
     {
+        private int id = 0;
         private String uname = "";
         private String password = "";
         private String role = "用户";
         private String name = "未命名";
+
+
+        public void setID(int id)
+        {
+            this.id = id;
+        }
         public void set用户名(String uname)
         {
             this.uname = uname;
@@ -33,5 +40,6 @@ namespace 商品管理系统
         public String 密码() { return password; }
         public String 身份() { return role; }
         public String 姓名() { return name; }
+        public int ID() { return id; }
     }
 }
