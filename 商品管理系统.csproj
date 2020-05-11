@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="业绩.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="业绩.Designer.cs">
+      <DependentUpon>业绩.cs</DependentUpon>
+    </Compile>
     <Compile Include="商品.cs" />
     <Compile Include="商品管理.cs">
       <SubType>Form</SubType>
@@ -71,6 +77,12 @@
       <DependentUpon>添加数据.cs</DependentUpon>
     </Compile>
     <Compile Include="用户.cs" />
+    <Compile Include="用户管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="用户管理.Designer.cs">
+      <DependentUpon>用户管理.cs</DependentUpon>
+    </Compile>
     <Compile Include="登陆界面.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
     </Compile>
     <Compile Include="管理系统主界面.Designer.cs">
       <DependentUpon>管理系统主界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="进货.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="进货.Designer.cs">
+      <DependentUpon>进货.cs</DependentUpon>
     </Compile>
     <Compile Include="销售面板.cs">
       <SubType>Form</SubType>
@@ -99,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="业绩.resx">
+      <DependentUpon>业绩.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="商品管理.resx">
       <DependentUpon>商品管理.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,11 +129,17 @@
     <EmbeddedResource Include="添加数据.resx">
       <DependentUpon>添加数据.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="用户管理.resx">
+      <DependentUpon>用户管理.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="登陆界面.resx">
       <DependentUpon>登陆界面.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="管理系统主界面.resx">
       <DependentUpon>管理系统主界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="进货.resx">
+      <DependentUpon>进货.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="销售面板.resx">
       <DependentUpon>销售面板.cs</DependentUpon>

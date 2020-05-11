@@ -15,3 +15,6 @@ C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.商品管
 C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.添加数据.resources
 C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.注册界面.resources
 C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.销售面板.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.业绩.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.用户管理.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.进货.resources
