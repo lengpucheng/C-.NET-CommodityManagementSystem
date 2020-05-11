@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "商品管理系统", "商品管理系统.csproj", "{87FBE115-2FDF-4AA6-9627-14D326F8440C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "课程设计", "..\课程设计\课程设计.csproj", "{293A4244-1A74-484F-B24C-1E3BC901CEE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87FBE115-2FDF-4AA6-9627-14D326F8440C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87FBE115-2FDF-4AA6-9627-14D326F8440C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87FBE115-2FDF-4AA6-9627-14D326F8440C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87FBE115-2FDF-4AA6-9627-14D326F8440C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293A4244-1A74-484F-B24C-1E3BC901CEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293A4244-1A74-484F-B24C-1E3BC901CEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293A4244-1A74-484F-B24C-1E3BC901CEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293A4244-1A74-484F-B24C-1E3BC901CEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0AF793A-5A8C-4556-B3C1-45C087FA7924}
+	EndGlobalSection
+EndGlobal

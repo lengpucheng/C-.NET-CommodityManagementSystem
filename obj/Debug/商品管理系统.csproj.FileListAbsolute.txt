@@ -1,0 +1,15 @@
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\bin\Debug\商品管理系统.exe.config
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\bin\Debug\商品管理系统.exe
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\bin\Debug\商品管理系统.pdb
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\bin\Debug\mysql.data.dll
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.csprojAssemblyReference.cache
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.Properties.Resources.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.登陆界面.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.csproj.GenerateResource.cache
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.csproj.CoreCompileInputs.cache
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.csproj.CopyComplete
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.exe
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.pdb
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.管理系统主界面.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.商品管理.resources
+C:\GitHub\.NET-C#-KCSJ\商品管理系统\obj\Debug\商品管理系统.添加数据.resources
