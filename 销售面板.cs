@@ -127,8 +127,7 @@ namespace 商品管理系统
             sp.编号 = int.Parse(编号.Text.ToString());
             int sum = int.Parse(数量.Text.ToString());
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             string sql = "SELECT * FROM commodity WHERE id=" + sp.编号;
             //执行
@@ -181,8 +180,7 @@ namespace 商品管理系统
             Double change = money - 合计;
             找零.Text = String.Format("{0:N2}", change);
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //修改库存
             string sql = "UPDATE commodity SET sales = sales+{0},sum=sum-{0} WHERE id={1}";

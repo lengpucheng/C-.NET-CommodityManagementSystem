@@ -32,8 +32,7 @@ namespace 商品管理系统
         private void 显示数据()
         {
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             String sql = "SELECT * FROM sales";
             //执行

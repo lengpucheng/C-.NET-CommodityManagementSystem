@@ -63,9 +63,8 @@ namespace 商品管理系统
         //显示数据
         private void 显示数据()
         {
-            //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            //获取链接
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             String sql = "SELECT * FROM commodity";
             //执行
@@ -153,8 +152,7 @@ namespace 商品管理系统
                     sql = String.Format(sql, sp.条码, sp.名称, sp.厂家, sp.类别,
                         sp.价格,sp.销量, sp.库存,sp.编号);
                     //打开链接
-                    string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-                    MySqlConnection cnn = new MySqlConnection(strConn);
+                    MySqlConnection cnn = 系统.链接();
                     cnn.Open();
                     //执行
                     MySqlCommand command = new MySqlCommand(sql, cnn);
@@ -201,8 +199,7 @@ namespace 商品管理系统
             //获取选中的编号
             int 编号= int.Parse(dataGridView1.Rows[删除行].Cells[0].Value.ToString());
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //sql语句
             String sql = "DELETE FROM commodity WHERE id="+编号;
@@ -262,8 +259,7 @@ namespace 商品管理系统
             //获取目标
             String 数 = 数量.Text.Trim().ToString();
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //sql语句
             String sql = "SELECT * FROM commodity WHERE " + 类型+条件+数;
@@ -314,8 +310,7 @@ namespace 商品管理系统
             //获取数值
             String 值 = "'%" + 属性值.Text.Trim() + "%'";
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //sql语句
             String sql = "SELECT * FROM commodity WHERE "+属性+"  LIKE  "+值 ;

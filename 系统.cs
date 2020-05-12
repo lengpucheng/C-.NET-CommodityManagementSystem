@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,15 @@ namespace 商品管理系统
         {
             return !登录用户.用户名().Equals("ccpp不在线了:4408");
         }
+
+        //获取链接
+        public static MySqlConnection 链接()
+        {
+            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
+            MySqlConnection cnn = new MySqlConnection(strConn);
+            return cnn;
+        }
+
     }
 
 }

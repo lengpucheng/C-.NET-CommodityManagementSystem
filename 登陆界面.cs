@@ -17,8 +17,7 @@ namespace 商品管理系统
             user.set用户名(textBox1.Text);
             user.set密码(textBox2.Text);
             //打开链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             string sql = "SELECT  * FROM user WHERE uname='" + user.用户名() + "' AND password='" + user.密码() + "' AND role='" + user.身份() + "'";
             //执行
