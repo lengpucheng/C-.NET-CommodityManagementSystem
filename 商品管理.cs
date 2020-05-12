@@ -44,7 +44,7 @@ namespace 商品管理系统
             用户名.Text = 系统.获取登录用户().姓名();
             数量类别.SelectedIndex = 0;
             数量条件.SelectedIndex = 0;
-            属性类别.SelectedIndex=0;
+            属性类别.SelectedIndex = 0;
             显示数据();
         }
         //回到上一个
@@ -101,10 +101,10 @@ namespace 商品管理系统
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
 
 
         //编辑前
@@ -127,7 +127,8 @@ namespace 商品管理系统
                     sp.库存 = int.Parse(dataGridView1.Rows[行].Cells[7].Value.ToString());
                 }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 MessageBox.Show("操作异常！");
             }
 
@@ -154,7 +155,7 @@ namespace 商品管理系统
                         " category = '{3}', price = {4}, sales = {5}, sum = {6} " +
                         "WHERE id = {7}";
                     sql = String.Format(sql, sp.条码, sp.名称, sp.厂家, sp.类别,
-                        sp.价格,sp.销量, sp.库存,sp.编号);
+                        sp.价格, sp.销量, sp.库存, sp.编号);
                     //打开链接
                     MySqlConnection cnn = 系统.链接();
                     cnn.Open();
@@ -183,8 +184,9 @@ namespace 商品管理系统
         //进入编辑模式
         private void button6_Click(object sender, EventArgs e)
         {
-            if (编辑模式) { 
-            编辑模式 = false;
+            if (编辑模式)
+            {
+                编辑模式 = false;
                 button6.Text = "开启编辑模式";
                 MessageBox.Show("编辑已退出，注意！双击修改将不会自动保存！");
             }
@@ -227,12 +229,12 @@ namespace 商品管理系统
             cnn.Open();
             //sql语句
             String sql = "DELETE FROM commodity WHERE id=" + 编号;
-            MessageBox.Show(sql);
             //执行
             MySqlCommand command = new MySqlCommand(sql, cnn);
             command.ExecuteNonQuery();
             cnn.Close();
             //重新显示数据
+            MessageBox.Show("删除成功！");
             显示数据();
         }
 
@@ -255,6 +257,18 @@ namespace 商品管理系统
 
         //数量筛选
         private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                数量筛选();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("筛选出错！");
+            }
+        }
+
+        private void 数量筛选()
         {
             //获取属性
             String 类型 = "price";
@@ -290,7 +304,7 @@ namespace 商品管理系统
             MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //sql语句
-            String sql = "SELECT * FROM commodity WHERE " + 类型+条件+数;
+            String sql = "SELECT * FROM commodity WHERE " + 类型 + 条件 + 数;
             //执行
             MySqlCommand command = new MySqlCommand(sql, cnn);
             //读取
@@ -317,6 +331,19 @@ namespace 商品管理系统
         //属性筛选
         private void button8_Click(object sender, EventArgs e)
         {
+            try
+            {
+                属性查询();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("查询出错！");
+            }
+        }
+
+        //属性查询
+        private void 属性查询()
+        {
             //获取属性
             String 属性 = "Barcode";
             switch (属性类别.SelectedIndex)
@@ -340,8 +367,7 @@ namespace 商品管理系统
             MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //sql语句
-            String sql = "SELECT * FROM commodity WHERE "+属性+"  LIKE  "+值 ;
-            MessageBox.Show(sql);
+            String sql = "SELECT * FROM commodity WHERE " + 属性 + "  LIKE  " + 值;
             //执行
             MySqlCommand command = new MySqlCommand(sql, cnn);
             //读取

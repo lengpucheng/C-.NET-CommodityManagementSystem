@@ -69,8 +69,8 @@ namespace 商品管理系统
                 //首列名
                 ltem.Text = sp.编号.ToString();
                 ltem.SubItems.Add(sp.条码);
-                ltem.SubItems.Add(sp.类别);
                 ltem.SubItems.Add(sp.名称);
+                ltem.SubItems.Add(sp.厂家);
                 ltem.SubItems.Add(sum.ToString());//数量
                 sum = sum + sp.库存;
                 ltem.SubItems.Add(sum.ToString());//库存
@@ -83,7 +83,6 @@ namespace 商品管理系统
                 return;
             }
             sql = "UPDATE commodity SET sum="+sum+" WHERE id ="+sp.编号;
-            MessageBox.Show(sql);
             //打开链接
             MySqlConnection cnn2 = 系统.链接();
             cnn2.Open();
