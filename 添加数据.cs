@@ -28,11 +28,14 @@ namespace 商品管理系统
         private void button1_Click(object sender, EventArgs e)
         {
             try {
-                添加();
+                if (系统.是管理员吗())
+                    添加();
+                else
+                    MessageBox.Show("权限不足！");
             }
             catch (Exception)
             {
-                MessageBox.Show("添加异常！请检测数据格式是否正确");
+                MessageBox.Show("添加异常！请检测数据格式是否正确\n或条码是否重复");
             }
 
         }
@@ -54,11 +57,8 @@ namespace 商品管理系统
             String sql = "INSERT INTO commodity(Barcode, name, factory, category, price,sum) " +
                 "VALUES ('{0}', '{1}', '{2}', '{3}', {4},{5});";
             sql = String.Format(sql, sp.条码, sp.名称, sp.厂家, sp.类别, sp.价格, sp.库存);
-            MessageBox.Show(sql);
-
             //建立链接
-            string strConn = "server=sql.hll520.cn;user=lpc_kshcxsj;password=Kshcxsj_lpc;Port=3306;database=kcsj_kshcxsj";
-            MySqlConnection cnn = new MySqlConnection(strConn);
+            MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //执行
             MySqlCommand command = new MySqlCommand(sql, cnn);

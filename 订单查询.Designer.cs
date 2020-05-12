@@ -1,6 +1,6 @@
 ﻿namespace 商品管理系统
 {
-    partial class 业绩
+    partial class 订单查询
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(订单查询));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.属性值 = new System.Windows.Forms.TextBox();
@@ -45,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.用户名 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,6 +59,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
@@ -63,8 +70,31 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1378, 161);
+            this.panel1.Size = new System.Drawing.Size(1178, 161);
             this.panel1.TabIndex = 8;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.button3.Location = new System.Drawing.Point(812, 47);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(111, 55);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "显示全部";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("一纸情书", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(428, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(141, 39);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "订单查询";
             // 
             // panel3
             // 
@@ -89,19 +119,20 @@
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button8.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.button8.Location = new System.Drawing.Point(1114, 4);
+            this.button8.Location = new System.Drawing.Point(1070, 3);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(95, 37);
             this.button8.TabIndex = 15;
             this.button8.Text = "查询";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // 属性值
             // 
             this.属性值.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.属性值.Location = new System.Drawing.Point(858, 6);
             this.属性值.Name = "属性值";
-            this.属性值.Size = new System.Drawing.Size(242, 31);
+            this.属性值.Size = new System.Drawing.Size(206, 31);
             this.属性值.TabIndex = 14;
             // 
             // 属性类别
@@ -113,10 +144,10 @@
             this.属性类别.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.属性类别.FormattingEnabled = true;
             this.属性类别.Items.AddRange(new object[] {
-            "条码",
-            "名称",
-            "厂家",
-            "类别"});
+            "订单编号",
+            "包含商品",
+            "操作员名",
+            "操作员ID"});
             this.属性类别.Location = new System.Drawing.Point(731, 6);
             this.属性类别.Name = "属性类别";
             this.属性类别.Size = new System.Drawing.Size(121, 32);
@@ -138,19 +169,20 @@
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button7.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.button7.Location = new System.Drawing.Point(478, 3);
+            this.button7.Location = new System.Drawing.Point(514, 4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(95, 37);
             this.button7.TabIndex = 10;
             this.button7.Text = "筛选";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // 数量
             // 
             this.数量.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.数量.Location = new System.Drawing.Point(353, 6);
+            this.数量.Location = new System.Drawing.Point(317, 6);
             this.数量.Name = "数量";
-            this.数量.Size = new System.Drawing.Size(119, 31);
+            this.数量.Size = new System.Drawing.Size(191, 31);
             this.数量.TabIndex = 9;
             // 
             // 数量条件
@@ -164,7 +196,7 @@
             "=",
             "≥",
             "≤"});
-            this.数量条件.Location = new System.Drawing.Point(263, 6);
+            this.数量条件.Location = new System.Drawing.Point(227, 6);
             this.数量条件.Name = "数量条件";
             this.数量条件.Size = new System.Drawing.Size(84, 32);
             this.数量条件.TabIndex = 8;
@@ -177,12 +209,11 @@
             this.数量类别.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.数量类别.FormattingEnabled = true;
             this.数量类别.Items.AddRange(new object[] {
-            "价格",
-            "销量",
-            "库存"});
+            "金额",
+            "时间"});
             this.数量类别.Location = new System.Drawing.Point(136, 6);
             this.数量类别.Name = "数量类别";
-            this.数量类别.Size = new System.Drawing.Size(121, 32);
+            this.数量类别.Size = new System.Drawing.Size(85, 32);
             this.数量类别.TabIndex = 7;
             // 
             // label3
@@ -211,9 +242,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.button1.Location = new System.Drawing.Point(1099, 51);
+            this.button1.Location = new System.Drawing.Point(1043, 47);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 37);
+            this.button1.Size = new System.Drawing.Size(96, 55);
             this.button1.TabIndex = 3;
             this.button1.Text = "退出登录";
             this.button1.UseVisualStyleBackColor = false;
@@ -224,9 +255,9 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(231)))), ((int)(((byte)(245)))));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.button2.Location = new System.Drawing.Point(985, 51);
+            this.button2.Location = new System.Drawing.Point(929, 47);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 37);
+            this.button2.Size = new System.Drawing.Size(96, 55);
             this.button2.TabIndex = 5;
             this.button2.Text = "回到主页";
             this.button2.UseVisualStyleBackColor = false;
@@ -236,7 +267,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(980, 7);
+            this.label2.Location = new System.Drawing.Point(941, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 28);
             this.label2.TabIndex = 1;
@@ -246,7 +277,7 @@
             // 
             this.用户名.AutoSize = true;
             this.用户名.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.用户名.Location = new System.Drawing.Point(1103, 7);
+            this.用户名.Location = new System.Drawing.Point(1064, 7);
             this.用户名.Name = "用户名";
             this.用户名.Size = new System.Drawing.Size(75, 28);
             this.用户名.TabIndex = 2;
@@ -254,6 +285,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -262,18 +294,26 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(1378, 583);
+            this.dataGridView1.Size = new System.Drawing.Size(1178, 583);
             this.dataGridView1.TabIndex = 9;
             // 
-            // 业绩
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // 订单查询
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 744);
+            this.ClientSize = new System.Drawing.Size(1178, 744);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
-            this.Name = "业绩";
-            this.Text = "业绩";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "订单查询";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "商品管理系统-订单查询";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.业绩_FormClosing);
             this.Load += new System.EventHandler(this.业绩_Load);
             this.panel1.ResumeLayout(false);
@@ -296,7 +336,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox 数量;
         private System.Windows.Forms.ComboBox 数量条件;
-        private System.Windows.Forms.ComboBox 数量类别;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
@@ -304,5 +343,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label 用户名;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox 数量类别;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

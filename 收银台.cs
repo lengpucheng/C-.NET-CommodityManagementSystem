@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace 商品管理系统
 {
-    public partial class 销售面板 : Form
+    public partial class 收银台 : Form
     {
         private Form 上个页面;
         private Boolean 用户点击关闭=true;
         double 合计 = 0.0;
-        public 销售面板(Form 父级)
+        public 收银台(Form 父级)
         {
             InitializeComponent();
             上个页面 = 父级;
@@ -26,7 +26,6 @@ namespace 商品管理系统
         {
             数量.Text = "1";
             用户名.Text = 系统.获取登录用户().姓名();
-            ColumnHeader ch = new ColumnHeader();
             //名称，列宽度，对齐方式
             this.listView1.Columns.Add("编号", 100, HorizontalAlignment.Left); 
             this.listView1.Columns.Add("名称", 100, HorizontalAlignment.Left); 
@@ -34,6 +33,7 @@ namespace 商品管理系统
             this.listView1.Columns.Add("单价", 100, HorizontalAlignment.Left); 
             this.listView1.Columns.Add("数量", 100, HorizontalAlignment.Left);
             this.listView1.Columns.Add("小计", 100, HorizontalAlignment.Left);
+            显示数据();
         }
 
         //回到首页
@@ -125,16 +125,19 @@ namespace 商品管理系统
             //获取编号和数量
             商品 sp = new 商品();
             sp.编号 = int.Parse(编号.Text.ToString());
+            sp.条码 = 编号.Text.ToString();
             int sum = int.Parse(数量.Text.ToString());
             //打开链接
             MySqlConnection cnn = 系统.链接();
             cnn.Open();
-            string sql = "SELECT * FROM commodity WHERE id=" + sp.编号;
+            string sql = "SELECT * FROM commodity WHERE id=" + sp.编号+ " or Barcode='" + sp.条码+"'";
             //执行
             MySqlCommand command = new MySqlCommand(sql, cnn);
             MySqlDataReader sdr = command.ExecuteReader();
             if (sdr.Read())
             {
+                sp.编号 = sdr.GetInt32("id");
+                sp.条码 = sdr.GetString("Barcode");
                 sp.库存 = sdr.GetInt32("sum");
                 sp.名称 = sdr.GetString("name");
                 sp.厂家 = sdr.GetString("factory");
@@ -231,6 +234,47 @@ namespace 商品管理系统
         {
             编号.Text = listView1.FocusedItem.SubItems[0].Text;
             数量.Text = listView1.FocusedItem.SubItems[4].Text;
+        }
+
+
+        //是否还在登录
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //是否还在线
+            if (!系统.还在线吗())
+            {
+                MessageBox.Show("用户已退出！");
+                用户点击关闭 = false;
+                this.Close();
+                系统.退出登录();
+            }
+        }
+
+
+        private void 显示数据()
+        {
+            //获取链接
+            MySqlConnection cnn = 系统.链接();
+            cnn.Open();
+            String sql = "SELECT id,Barcode,name,price FROM commodity";
+            //执行
+            MySqlCommand command = new MySqlCommand(sql, cnn);
+            //读取
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            //建立本地的数据流
+            DataSet ds = new DataSet();
+            //把数据放入ds中
+            adapter.Fill(ds);
+            //关闭数据链接
+            cnn.Close();
+            //显示数据 从 ds---》DataGridView
+            dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            dataGridView1.RowHeadersVisible = false;
+            //标题栏
+            dataGridView1.Columns["id"].HeaderText = "编号";
+            dataGridView1.Columns["Barcode"].HeaderText = "条码";
+            dataGridView1.Columns["name"].HeaderText = "名称";
+            dataGridView1.Columns["price"].HeaderText = "单价";
         }
     }
 }

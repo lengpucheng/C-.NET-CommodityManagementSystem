@@ -74,6 +74,7 @@
             this.label1.Size = new System.Drawing.Size(425, 58);
             this.label1.TabIndex = 0;
             this.label1.Text = "零售店商品管理系统";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -337,9 +338,10 @@
             this.Controls.Add(this.商品管理按钮);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "管理系统主界面";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "管理系统主界面";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "商品管理系统-主界面";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.管理系统主界面_FormClosing);
             this.Load += new System.EventHandler(this.管理系统主界面_Load);
             this.panel1.ResumeLayout(false);

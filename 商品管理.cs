@@ -18,7 +18,6 @@ namespace 商品管理系统
         private int 行 = 0;
         private int 列 = 0;
         private Boolean 编辑模式 = false;
-        private Boolean 查询模式 = false;
         private 商品 sp = new 商品();
         public 商品管理(Form 父级)
         {
@@ -36,8 +35,13 @@ namespace 商品管理系统
 
         private void 商品管理_Load(object sender, EventArgs e)
         {
-            用户名.Text = 系统.获取登录用户().姓名();
+            if (!系统.是管理员吗())
+            {
+                button6.Text = "编辑无权限";
+                button6.Enabled = false;
+            }
 
+            用户名.Text = 系统.获取登录用户().姓名();
             数量类别.SelectedIndex = 0;
             数量条件.SelectedIndex = 0;
             属性类别.SelectedIndex=0;
@@ -159,6 +163,7 @@ namespace 商品管理系统
                     command.ExecuteNonQuery();
                     cnn.Close();
                     MessageBox.Show("保存成功");
+                    显示数据();
                 }
             }
             catch (Exception)
@@ -166,12 +171,12 @@ namespace 商品管理系统
                 MessageBox.Show("保存异常！");
             }
 
+
         }
 
         //显示全部
         private void button5_Click(object sender, EventArgs e)
         {
-            查询模式 = false;
             显示数据();
         }
 
@@ -194,15 +199,34 @@ namespace 商品管理系统
         //删除
         private void button4_Click(object sender, EventArgs e)
         {
+            if (系统.是管理员吗())
+            {
+                try
+                {
+                    删除选中();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+            else
+                MessageBox.Show("权限不足！");
+        }
+
+
+        //删除选中
+        private void 删除选中()
+        {
             //获取当前选中行
             int 删除行 = dataGridView1.CurrentCell.RowIndex;
             //获取选中的编号
-            int 编号= int.Parse(dataGridView1.Rows[删除行].Cells[0].Value.ToString());
+            int 编号 = int.Parse(dataGridView1.Rows[删除行].Cells[0].Value.ToString());
             //打开链接
             MySqlConnection cnn = 系统.链接();
             cnn.Open();
             //sql语句
-            String sql = "DELETE FROM commodity WHERE id="+编号;
+            String sql = "DELETE FROM commodity WHERE id=" + 编号;
             MessageBox.Show(sql);
             //执行
             MySqlCommand command = new MySqlCommand(sql, cnn);
@@ -214,9 +238,14 @@ namespace 商品管理系统
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //如果不是编辑模式或查询模式就刷新数据
-            if(!编辑模式&&!查询模式)
-                显示数据();
+            //是否还在线
+            if (!系统.还在线吗())
+            {
+                MessageBox.Show("用户已退出！");
+                是否点关闭 = false;
+                this.Close();
+                系统.退出登录();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -227,7 +256,6 @@ namespace 商品管理系统
         //数量筛选
         private void button7_Click(object sender, EventArgs e)
         {
-            查询模式 = true;
             //获取属性
             String 类型 = "price";
             switch (数量类别.SelectedIndex)
@@ -289,7 +317,6 @@ namespace 商品管理系统
         //属性筛选
         private void button8_Click(object sender, EventArgs e)
         {
-            查询模式 = true;
             //获取属性
             String 属性 = "Barcode";
             switch (属性类别.SelectedIndex)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(添加数据));
             this.label1 = new System.Windows.Forms.Label();
             this.条码 = new System.Windows.Forms.TextBox();
             this.名称 = new System.Windows.Forms.TextBox();
@@ -192,8 +193,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.条码);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "添加数据";
-            this.Text = "添加数据";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "商品管理系统-添加数据";
             this.Load += new System.EventHandler(this.添加数据_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

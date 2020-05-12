@@ -58,6 +58,29 @@ namespace 商品管理系统
         private void 用户被选中(object sender, EventArgs e)
         {
             user.set身份用户();
-        } 
+        }
+
+        private void zhuche_Click(object sender, EventArgs e)
+        {
+            new 注册界面().Show();
+        }
+
+        //忘记密码
+        private void fogrpss_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("请类型管理员");
+        }
+
+        //显示密码
+        private void pictureBox4_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBox2.PasswordChar = '\0';
+        }
+
+        //移开
+        private void pictureBox4_MouseUp(object sender, MouseEventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
     }
 }

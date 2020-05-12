@@ -51,28 +51,37 @@ namespace 商品管理系统
         //货物补充
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            new 进货().Show();
+            if (系统.是管理员吗())
+            {
+                new 进货().Show();
+            }
+            else
+                MessageBox.Show("权限不足！");
         }
 
         //销售面板
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            new 销售面板(this).Show();
+            new 收银台(this).Show();
             this.Hide();
         }
 
         //销售详情
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            new 业绩(this).Show();
+            new 订单查询(this).Show();
             this.Hide();
         }
 
         //用户管理
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (系统.是管理员吗()) { 
             new 用户管理(this).Show();
             this.Hide();
+            }else
+                MessageBox.Show("权限不足！");
+
         }
         //关闭
         private void 管理系统主界面_FormClosing(object sender, FormClosingEventArgs e)
@@ -83,5 +92,9 @@ namespace 商品管理系统
                 是否点关闭 = true;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            new 关于软件().Show();
+        }
     }
 }
